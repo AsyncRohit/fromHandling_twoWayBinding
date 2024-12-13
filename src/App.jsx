@@ -1,34 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
+
+import Nav from "./Nav";
+import Form from "./Form";
 
 const App = () => {
-
-  const submitHandler=(e)=>{
-    e.preventDefault()
-    console.log("my name is ",name)
-    setName("");
-  }
-
-  const [name, setName] = useState("")
+  const [data,setdata]=useState(["Home","About", "Projects","services"]);
+  
   return (
-    <div>
+    <div className="main bg-zinc-800 h-screen w-full text-zinc-300">
+      <header>
+<Nav data={data}/>      
+      </header>
+<main>
+<Form />
 
-      <form onSubmit={(e)=>{
-        submitHandler(e)
-      }}>
-        <input type="text" placeholder='Enter your name ' 
-          onChange={(e)=>{
-            setName(e.target.value)
-            console.log(e.target.value)
-          }}
-          value={name}
+</main>
 
-        />
-        <br />
 
-        <button>Submit</button>
-      </form>
+     
+      
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
